@@ -29,6 +29,7 @@ module.exports = (req, res) => {
         download(str, folder + item.parent + '-' + filename, () => {
             console.log('Finished Downloading ' + filename);
             if (idx === arr.length - 1) {
+                console.log("Total files downloaded: " + arr.length);
                 scheduler();
             }
         });

@@ -1,6 +1,7 @@
 const Flickr = require("flickrapi"),
     config = require('./../config/configuration'),
-    admin = require('firebase-admin');
+    admin = require('firebase-admin'),
+    deleteFromStorage = require('./firebase.storage.delete');
 
 module.exports = (filesList) => {
     let parents = [];
@@ -30,6 +31,7 @@ module.exports = (filesList) => {
                             }
                             store.collection('gallery').doc(p).update({ "photos": finalPhotos, "isFromFlickr": true }).then(() => {
                                 console.log("Gallery: #" + p + " is attached with flickrphotos:" + finalPhotos);
+                                deleteFromStorage(p);
                             })
                         }
                     })
