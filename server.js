@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
     res.send('I am running...');
 });
 
-app.get('/ATriggerVerify.txt', (req, res) => res.sendFile(__dirname + '\\ATriggerVerify.txt'));
+app.get('/ATriggerVerify.txt', (req, res) => res.sendFile(__dirname + '/ATriggerVerify.txt'));
 
 app.get('/task/download', cleanup, read, download);
 app.get('/task/upload', upload);
