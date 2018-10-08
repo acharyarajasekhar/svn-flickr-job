@@ -11,7 +11,11 @@ module.exports = (req, res, next) => {
                     ...doc.data()
                 })
             });
-            req.source_data = data;
-            next();
+            if (data.length > 0) {
+                req.source_data = data;
+                next();
+            } else {
+                res.json("No new entries in firebase gallery to process...");
+            }
         }).catch(err => res.json(err));
 }

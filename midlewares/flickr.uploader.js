@@ -1,12 +1,13 @@
 const Flickr = require("flickrapi"),
     config = require('../config/configuration'),
-    fs = require('fs');
+    fs = require('fs'),
+    updateFbRef = require('./firebase.updateref');
 
 module.exports = (req, res) => {
 
     fs.readdir(__dirname + '/../temp', (err, files) => {
         if (err) res.json(err);
-        else {
+        else if (files.length > 0) {
             let filesList = []
             files.forEach((f, idx, fArr) => {
                 let ff = f.split('-')[0]
@@ -33,11 +34,14 @@ module.exports = (req, res) => {
                             return console.error(error);
                         }
                         console.log("Upload completed...: " + result);
+                        updateFbRef(filesList);
                     });
 
                     res.json(filesList);
                 }
             })
+        } else {
+            res.json("No files to upload");
         }
     })
 }
