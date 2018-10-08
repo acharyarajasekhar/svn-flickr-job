@@ -4,7 +4,7 @@ const Flickr = require("flickrapi"),
 
 module.exports = (req, res) => {
 
-    fs.readdir(__dirname + '\\..\\temp', (err, files) => {
+    fs.readdir(__dirname + '/../temp', (err, files) => {
         if (err) res.json(err);
         else {
             let filesList = []
@@ -12,7 +12,7 @@ module.exports = (req, res) => {
                 let ff = f.split('-')[0]
                 filesList.push({
                     parent: f.split('-')[0],
-                    fileUrl: __dirname + "\\..\\temp\\" + f
+                    fileUrl: __dirname + "/../temp/" + f
                 })
                 if (idx === fArr.length - 1) {
                     let uploadOptions = {
