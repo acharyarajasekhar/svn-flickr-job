@@ -1,0 +1,26 @@
+{
+  "name": "svn-flickr-job",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "s": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "firebase-admin": "^6.0.0",
+    "flickrapi": "^0.6.0",
+    "moment": "^2.22.2",
+    "request": "^2.88.0",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
