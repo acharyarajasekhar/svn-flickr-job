@@ -1,7 +1,10 @@
 const admin = require('firebase-admin');
 const config = require('./config/configuration');
+const app = require('express')();
 
 admin.initializeApp({ credential: admin.credential.cert(config.FIREBASE_OPTIONS) })
 admin.firestore().settings({ timestampsInSnapshots: true });
 
-require('./tasks/chain')();
+app.get('/', (req, res) => res.send("I am running"));
+app.get('/ATriggerVerify.txt', (req, res) => res.sendFile(__dirname + '/ATriggerVerify.txt'));
+app.get('/start', (req, res) => { require('./tasks/chain')(); res.send("Job initiated") });
