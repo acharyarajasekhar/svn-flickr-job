@@ -8,3 +8,5 @@ admin.firestore().settings({ timestampsInSnapshots: true });
 app.get('/', (req, res) => res.send("I am running"));
 app.get('/ATriggerVerify.txt', (req, res) => res.sendFile(__dirname + '/ATriggerVerify.txt'));
 app.get('/start', (req, res) => { require('./tasks/chain')(); res.send("Job initiated") });
+
+app.listen(process.env.PORT, () => console.log('App Started'));
