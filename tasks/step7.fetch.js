@@ -5,7 +5,7 @@ const moment = require('moment');
 module.exports = (data) => {
     return new Promise((resolve, reject) => {
         try {
-            Flickr.authenticate(config.FLICKR_OPTIONS, (error, flickr) => {
+            Flickr.tokenOnly(config.FLICKR_OPTIONS, (error, flickr) => {
                 if (error) reject(error);
                 else {
                     let results = [];

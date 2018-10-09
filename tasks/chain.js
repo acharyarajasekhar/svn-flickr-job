@@ -13,18 +13,15 @@ module.exports = () => {
         .then((data) => { return require('./step8.updateref')(data) })
         .then(() => {
             console.log("Job finished @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
-            process.exit(0);
         })
         .catch(err => {
             if (err && err["reason"]) {
                 console.log(err["reason"]);
                 console.log("Job finished @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
-                process.exit(0);
             }
             else {
                 console.error(err);
                 console.log("Job finished with errors @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
-                process.exit(0);
             }
         });
 
