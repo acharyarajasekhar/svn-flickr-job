@@ -22,6 +22,6 @@ app.get('/task/start', (req, res) => {
     res.send("Job initiated...");
 })
 
-const server = app.listen(9090, () => {
+const server = app.listen(process.env.PORT, () => {
     console.log("App listening at http://%s:%s", server.address().address, server.address().port);
 }); // taskkill /f /im node.exe
