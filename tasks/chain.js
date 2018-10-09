@@ -14,15 +14,18 @@ module.exports = () => {
         .then((data) => {
             console.log(JSON.stringify(data));
             console.log("Job finished @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+            process.exit();
         })
         .catch(err => {
             if (err && err["reason"]) {
                 console.log(err["reason"]);
                 console.log("Job finished @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+                process.exit();
             }
             else {
                 console.error(err);
                 console.log("Job finished with errors @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+                process.exit();
             }
         });
 
