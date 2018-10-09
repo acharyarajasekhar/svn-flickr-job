@@ -24,7 +24,7 @@ module.exports = (data) => {
                 upPromises.push(req);
             });
             Promise.all(upPromises).then(() => {
-                console.log("All Flickr image url's updated in Firebase @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+                console.log("End of UpdateRef task @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
                 resolve(data);
             }).catch(err => reject(err));
         }

@@ -19,11 +19,12 @@ module.exports = (data) => {
                 reqPromises.push(req);
             });
             Promise.all(reqPromises).then(() => {
-                console.log("All files uploaded @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
-                console.log("Pausing the execution for 5 minute...");
+                console.log("End of Uploade tasks @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+                console.log("Pausing the execution for " + process.env.FLICKR_SYNC_TIME + " minute...");
                 setTimeout(() => {
+                    console.log("Resuming the execution after " + process.env.FLICKR_SYNC_TIME + " minute...");
                     resolve(data);
-                }, 5 * 60 * 1000);
+                }, parseInt(process.env.FLICKR_SYNC_TIME) * 60 * 1000);
             }).catch(err => reject(err));
         }
         catch (err) {

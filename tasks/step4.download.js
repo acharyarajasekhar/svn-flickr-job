@@ -18,7 +18,7 @@ module.exports = (data) => {
             });
         })
         Promise.all(reqPromises).then(() => {
-            console.log("All files downloaded @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+            console.log("End of Download tasks @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
             resolve(data);
         }).catch(err => reject(err));
     });

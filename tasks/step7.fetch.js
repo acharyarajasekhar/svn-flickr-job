@@ -31,7 +31,7 @@ module.exports = (data) => {
                         fetchPromises.push(req);
                     });
                     Promise.all(fetchPromises).then(() => {
-                        console.log("All file-url's fetched from Flickr @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
+                        console.log("End of Flickr URL's fetch task @ " + moment().utcOffset("+05:30").format('YYYY-MM-DD hh:mm:ss a'));
                         resolve(results);
                     }).catch(err => reject(err));
                 }
